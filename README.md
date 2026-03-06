@@ -1,51 +1,88 @@
-# Amazon-Products-Dashboard
-Interactive Amazon Product Analytics Dashboard built using R Shiny. The dashboard analyzes product pricing, ratings, category distribution, sentiment analysis, and fake product detection using an Amazon product dataset.
+Amazon Products Dashboard
 
-Amazon Product Analytics Dashboard
-Project Overview
+Interactive Amazon Product Analytics Dashboard built using R Shiny.
+The dashboard analyzes product pricing, ratings, category distribution, sentiment analysis, and fake product detection using an Amazon product dataset.
 
-This project presents an Amazon Product Analytics Dashboard developed using R and RStudio. The dashboard is designed to analyze Amazon product data and generate insights related to product pricing, ratings, brand performance, and product categories.
+1. Project Overview
+
+This project presents an Amazon Product Analytics Dashboard developed using R and RStudio.
+
+The dashboard is designed to analyze Amazon product data and generate insights related to:
+
+Product pricing
+
+Product ratings
+
+Brand performance
+
+Product category distribution
 
 The project focuses on using data visualization and interactive dashboards to explore e-commerce datasets and help users better understand product trends and customer feedback.
 
-The analytical approach and methodology used in this project are explained in the project report and presentation included in this repository.
+The analytical approach and methodology used in this project are explained in the:
 
-Project Objectives
+Project Report
+
+Project Presentation
+
+Both files are included in this repository.
+
+2. Project Objectives
 
 The main objectives of this project are:
 
-Analyze Amazon product data to extract meaningful insights
+Analyze Amazon product data to extract meaningful insights.
 
-Visualize product price distribution and category trends
+Visualize product price distribution and category trends.
 
-Identify potential fake or low-quality products
+Identify potential fake or low-quality products.
 
-Perform sentiment analysis on product reviews
+Perform sentiment analysis on product reviews.
 
-Build an interactive dashboard for data exploration
+Build an interactive dashboard for data exploration.
 
-Key Features of the Dashboard
-Price Distribution Analysis
+3. Key Features of the Dashboard
+3.1 Price Distribution Analysis
 
-Visualizes the distribution of product prices across different product categories to understand pricing patterns.
+Visualizes the distribution of product prices.
 
-Product Rating Insights
+Helps understand pricing patterns across different categories.
 
-Analyzes product ratings to identify highly rated and poorly rated products.
+3.2 Product Rating Insights
 
-Fake Product Detection
+Analyzes product ratings.
 
-Implements rule-based logic to identify potentially fake or suspicious products using indicators such as ratings and review sentiment.
+Identifies highly rated and poorly rated products.
 
-Top Product Categories
+3.3 Fake Product Detection
 
-Identifies the most common product categories present in the dataset.
+Implements rule-based logic to identify potentially fake or suspicious products using indicators such as:
 
-Brand Performance Analysis
+Low ratings
 
-Compares brands based on metrics such as average rating and price distribution.
+Negative review sentiment
 
-Technologies Used
+Inconsistent product data
+
+3.4 Top Product Categories
+
+Identifies the most common product categories in the dataset.
+
+Shows which categories dominate the product listings.
+
+3.5 Brand Performance Analysis
+
+Compares brands using metrics such as:
+
+Average rating
+
+Price distribution
+
+Number of products
+
+4. Technologies Used
+
+The project was developed using the following technologies:
 
 R
 
@@ -63,25 +100,34 @@ dplyr
 
 tidyr
 
+5. Project Files in this Repository
 
-Project Files in this Repository
+This repository contains the following materials:
 
-This repository includes the following materials:
+Internship Report
 
-Internship Report – Detailed explanation of the project methodology, dataset, and dashboard features
+Detailed explanation of the project methodology, dataset, and dashboard features.
 
-Presentation Slides – Overview of the project, visualizations, and insights
+Presentation Slides
 
-Project Code (R) – Source code used to build the dashboard
+Overview of the project, visualizations, and insights.
 
-⚠️ Note:
-The current repository contains the project code used during development. The dashboard may require minor debugging to run due to environment or dependency issues. However, the full project explanation and results are available in the report and presentation files.
+Project Code (R)
 
-Dataset
+Source code used to build the dashboard.
+
+⚠ Note
+
+The repository contains the development version of the project code.
+The dashboard may require minor debugging to run due to environment or dependency issues.
+
+However, the complete explanation of the project and results can be found in the report and presentation files.
+
+6. Dataset
 
 The project uses a publicly available Amazon product dataset containing information such as:
 
-Product name
+Product Name
 
 Category
 
@@ -93,36 +139,36 @@ Ratings
 
 Reviews
 
-Product descriptions
+Product Descriptions
 
-This data is used to perform exploratory analysis and build visual insights through the dashboard.
+This dataset is used to perform exploratory data analysis and generate insights through visualizations.
 
-How the Dashboard Works
+7. How the Dashboard Works
 
-The dashboard was designed using R Shiny, allowing users to interactively explore product data through:
+The dashboard was developed using R Shiny, allowing users to interactively explore product data through:
 
-category filters
+Category filters
 
-price visualizations
+Price distribution visualizations
 
-brand comparisons
+Brand comparison charts
 
-rating analysis
+Product rating analysis
 
-sentiment analysis outputs
+Sentiment analysis outputs
 
-The goal of the dashboard is to make complex product data easier to interpret through interactive visualizations.
+The goal is to make complex product data easier to interpret through interactive visualizations.
 
-Future Improvements
+8. Future Improvements
 
 Possible future enhancements include:
 
-Fixing runtime errors in the current code implementation
+Fixing runtime errors in the current code implementation.
 
-Deploying the dashboard online
+Deploying the dashboard online.
 
-Implementing machine learning models for fake product detection
+Implementing machine learning models for fake product detection.
 
-Expanding sentiment analysis with more advanced NLP techniques
+Expanding sentiment analysis using more advanced NLP techniques.
 
-Adding more interactive filters and visualizations
+Adding more interactive filters and visualizations.
