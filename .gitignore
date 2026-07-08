@@ -1,0 +1,11 @@
+# Data files (large, not tracked — see data/README.md)
+data/*.csv
+
+# R history / workspace
+.Rhistory
+.RData
+.Rproj.user/
+
+# OS
+.DS_Store
+Thumbs.db
