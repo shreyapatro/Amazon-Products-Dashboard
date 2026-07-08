@@ -39,10 +39,6 @@ Amazon-Products-Dashboard/
 ├── data/
 │   └── README.md       # Where to place the source CSVs (not tracked in git)
 └── .gitignore
-Previously, the CSS, JS, UI, and server logic all lived in a single ~1,400-line
-`.R` file. It's now split along standard Shiny conventions (`global.R` /
-`ui.R` / `server.R`), with styling and scripting pulled into `www/` where
-Shiny serves them natively.
 
 ## Tech Stack
 
