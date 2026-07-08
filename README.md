@@ -1,174 +1,122 @@
-Amazon Products Dashboard
+# Amazon Products Dashboard
+
+An interactive **R Shiny** dashboard for exploring an Amazon product listings
+dataset — pricing, ratings, category trends, bestseller patterns, and a
+rule-based fake/suspicious product detector.
+
+## Overview
 
-Interactive Amazon Product Analytics Dashboard built using R Shiny.
-The dashboard analyzes product pricing, ratings, category distribution, sentiment analysis, and fake product detection using an Amazon product dataset.
+This project analyzes Amazon product data to surface insights on pricing,
+customer ratings, brand performance, and category distribution, and packages
+them into an interactive dashboard built with `shinydashboard`.
 
-1. Project Overview
+The full methodology and write-up are available in [`docs/`](docs):
+- [Internship Report](<docs/Internship Report (Amazon Products Dashboard).pdf>)
+- [Presentation Slides](<docs/Amazon Product Dashboard.pdf>)
 
-This project presents an Amazon Product Analytics Dashboard developed using R and RStudio.
+## Features
 
-The dashboard is designed to analyze Amazon product data and generate insights related to:
+| Tab | What it shows |
+|---|---|
+| **Overview** | KPI cards, price/rating distributions, filterable product table |
+| **Price vs Rating** | Scatter plot of price vs. rating, filterable by category/reviews/bestseller |
+| **Bestsellers** | Bestseller rate by category, price comparison, bestseller table |
+| **Top Categories** | Top 8 categories by product count (pie chart + table) |
+| **Other Categories** | Breakdown of remaining categories |
+| **Filtered Data** | Upload your own CSV(s), merge or replace, filter, and download |
+| **Fake Products** | Heuristic-flagged products (low ratings, inconsistent data, etc.) with reason breakdown |
+| **Statistics** | Summary tables for price, ratings, and category counts |
+| **Download** | Export the raw or cleaned dataset as CSV |
 
-Product pricing
+Most charts support downloading as PNG, SVG, or TIFF directly from the UI.
 
-Product ratings
+## Project Structure
 
-Brand performance
+```
+Amazon-Products-Dashboard/
+├── global.R          # Packages, helper sourcing, one-time data load & cleaning
+├── ui.R              # Dashboard layout (header, sidebar, tabs)
+├── server.R          # Reactive logic: filters, plots, tables, downloads
+├── R/
+│   └── helpers.R      # Shared plotting/export helper functions
+├── www/
+│   ├── style.css       # All dashboard styling (previously inline in the R file)
+│   └── script.js       # Sidebar toggle + table pagination fixes
+├── data/
+│   └── README.md       # Where to place the source CSVs (not tracked in git)
+├── docs/
+│   ├── Internship Report (Amazon Products Dashboard).pdf
+│   └── Amazon Product Dashboard.pdf
+└── .gitignore
+```
 
-Product category distribution
+Previously, the CSS, JS, UI, and server logic all lived in a single ~1,400-line
+`.R` file. It's now split along standard Shiny conventions (`global.R` /
+`ui.R` / `server.R`), with styling and scripting pulled into `www/` where
+Shiny serves them natively.
 
-The project focuses on using data visualization and interactive dashboards to explore e-commerce datasets and help users better understand product trends and customer feedback.
+## Tech Stack
 
-The analytical approach and methodology used in this project are explained in the:
+- **R / RStudio**
+- **Shiny** & **shinydashboard** — app framework and layout
+- **plotly** — interactive charts
+- **DT** — interactive data tables
+- **shinycssloaders** — loading spinners
+- **webshot2**, **png**, **tiff** — chart export to image formats
 
-Project Report
+## Getting Started
 
-Project Presentation
+### Prerequisites
 
-Both files are included in this repository.
+Install R (≥ 4.0) and the required packages:
 
-2. Project Objectives
+```r
+install.packages(c(
+  "shiny", "shinydashboard", "DT", "plotly",
+  "webshot2", "png", "tiff", "shinycssloaders"
+))
+```
 
-The main objectives of this project are:
+`webshot2` also needs a headless Chromium install (one-time):
 
-Analyze Amazon product data to extract meaningful insights.
+```r
+webshot2::install_phantomjs()  # or: webshot2 uses Chromium automatically via chromote
+```
 
-Visualize product price distribution and category trends.
+### Dataset
 
-Identify potential fake or low-quality products.
+Download the Amazon product listings dataset and place the two CSVs in
+`data/` as described in [`data/README.md`](data/README.md):
 
-Perform sentiment analysis on product reviews.
+- `data/amazon_products.csv`
+- `data/amazon_categories.csv`
 
-Build an interactive dashboard for data exploration.
+### Run the app
 
-3. Key Features of the Dashboard
-3.1 Price Distribution Analysis
+From the project root, in R or RStudio:
 
-Visualizes the distribution of product prices.
+```r
+shiny::runApp()
+```
 
-Helps understand pricing patterns across different categories.
+Or from the terminal:
 
-3.2 Product Rating Insights
+```bash
+Rscript -e "shiny::runApp(port = 3838)"
+```
 
-Analyzes product ratings.
+## Dataset Description
 
-Identifies highly rated and poorly rated products.
+The dataset contains Amazon product listings with fields including:
 
-3.3 Fake Product Detection
+- Product title, brand, category
+- Price and list price
+- Star rating and review count
+- Bestseller flag and units bought last month
 
-Implements rule-based logic to identify potentially fake or suspicious products using indicators such as:
+## Future Improvements
 
-Low ratings
-
-Negative review sentiment
-
-Inconsistent product data
-
-3.4 Top Product Categories
-
-Identifies the most common product categories in the dataset.
-
-Shows which categories dominate the product listings.
-
-3.5 Brand Performance Analysis
-
-Compares brands using metrics such as:
-
-Average rating
-
-Price distribution
-
-Number of products
-
-4. Technologies Used
-
-The project was developed using the following technologies:
-
-R
-
-RStudio
-
-Shiny
-
-shinydashboard
-
-ggplot2
-
-plotly
-
-dplyr
-
-tidyr
-
-5. Project Files in this Repository
-
-This repository contains the following materials:
-
-Internship Report
-
-Detailed explanation of the project methodology, dataset, and dashboard features.
-
-Presentation Slides
-
-Overview of the project, visualizations, and insights.
-
-Project Code (R)
-
-Source code used to build the dashboard.
-
-⚠ Note
-
-The repository contains the development version of the project code.
-The dashboard may require minor debugging to run due to environment or dependency issues.
-
-However, the complete explanation of the project and results can be found in the report and presentation files.
-
-6. Dataset
-
-The project uses a publicly available Amazon product dataset containing information such as:
-
-Product Name
-
-Category
-
-Brand
-
-Price
-
-Ratings
-
-Reviews
-
-Product Descriptions
-
-This dataset is used to perform exploratory data analysis and generate insights through visualizations.
-
-7. How the Dashboard Works
-
-The dashboard was developed using R Shiny, allowing users to interactively explore product data through:
-
-Category filters
-
-Price distribution visualizations
-
-Brand comparison charts
-
-Product rating analysis
-
-Sentiment analysis outputs
-
-The goal is to make complex product data easier to interpret through interactive visualizations.
-
-8. Future Improvements
-
-Possible future enhancements include:
-
-Fixing runtime errors in the current code implementation.
-
-Deploying the dashboard online.
-
-Implementing machine learning models for fake product detection.
-
-Expanding sentiment analysis using more advanced NLP techniques.
-
-Adding more interactive filters and visualizations.
+- Deploy the dashboard (e.g. shinyapps.io)
+- Replace heuristic fake-product detection with a trained ML model
+- Add proper NLP-based sentiment analysis on review text
+- Add automated tests for the data-cleaning and filtering logic
